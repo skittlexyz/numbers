@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>numbers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="script.js" defer></script>
+    <style> .hide { z-index: -1 !important; opacity: 0% !important; width: 0 !important; height: 0 !important; } </style>
+</head>
+<body class="w-screen h-screen overflow-hidden font-['Fira_Mono']">
+    <button id="open-menu" class="opacity-10 hover:opacity-100 absolute top-0 right-0 mt-4 mr-4 text-white border h-6 w-6">O</button>
+    <aside class="hide absolute top-0 right-0 mt-4 mr-4 border w-40 h-fit p-4 flex flex-col gap-2 text-white" id="menu">
+        <button id="close-menu" class="absolute top-0 right-0 mt-4 mr-4 border h-6 w-6">X</button>
+        <p>menu</p>
+        <div class="flex items-center gap-2">
+            <label class="text-xs" for="rows">rows</label>
+            <input id="rows" class="text-black w-full border p-1" type="number">
+        </div>
+        <div class="flex items-center gap-2">
+            <label class="text-xs" for="columns">columns</label>
+            <input id="columns" class="text-black w-full border p-1" type="number">
+        </div>
+        <div class="flex items-center gap-2">
+            <label class="text-xs" for="size">size</label>
+            <input value="1" min="1" max="9" id="size" class="text-black w-full border p-1" type="number">
+        </div>
+        <div class="flex items-center gap-2">
+            <label class="text-xs" for="min">min</label>
+            <input value="0" id="min" class="text-black w-full border p-1" type="number">
+        </div>
+        <div class="flex items-center gap-2">
+            <label class="text-xs" for="max">max</label>
+            <input value="50" id="max" class="text-black w-full border p-1" type="number">
+        </div>
+        <div class="flex items-center gap-2">
+            <label class="text-xs" for="bg-color">bg color</label>
+            <input id="bg-color" class="text-black w-full border-none" type="color" value="#000000">
+        </div>
+        <div class="flex items-center gap-2">
+            <label class="text-xs" for="text-color">text color</label>
+            <input id="text-color" class="text-black w-full border-none" type="color" value="#ffffff">
+        </div>
+    </aside> 
+    <main class="w-screen h-screen flex justify-center items-center bg-black text-white p-4">
+        
+    </main>
+</body>
+</html>
