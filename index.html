@@ -8,30 +8,37 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/colortranslator@1.10.1/web/colortranslator.js"></script>
+    <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
     <script src="script.js" defer></script>
     <style> .hide { z-index: -1 !important; opacity: 0% !important; width: 0 !important; height: 0 !important; } </style>
 </head>
 <body class="w-screen h-screen overflow-hidden font-['Fira_Mono']">
     <button id="open-menu" class="opacity-10 hover:opacity-100 absolute top-0 right-0 mt-4 mr-4 text-white border h-6 w-6">O</button>
-    <aside class="hide absolute top-0 right-0 mt-4 mr-4 border w-40 h-fit p-4 flex flex-col gap-2 text-white" id="menu">
+    <aside class="bg-black hide absolute top-0 right-0 mt-4 mr-4 border w-40 h-fit p-4 flex flex-col gap-2 text-white" id="menu">
         <button id="close-menu" class="absolute top-0 right-0 mt-4 mr-4 border h-6 w-6">X</button>
         <p>menu</p>
+        <hr>
         <div class="flex items-center gap-2">
             <label class="text-xs" for="rows">rows</label>
-            <input id="rows" class="text-black w-full border p-1" type="number">
+            <input min="1" value="1" id="rows" class="text-black w-full border p-1" type="number">
         </div>
         <div class="flex items-center gap-2">
             <label class="text-xs" for="columns">columns</label>
-            <input id="columns" class="text-black w-full border p-1" type="number">
+            <input min="1" value="1" id="columns" class="text-black w-full border p-1" type="number">
         </div>
+        <hr>
         <div class="flex items-center gap-2">
             <label class="text-xs" for="size">size</label>
-            <input value="1" min="1" max="9" id="size" class="text-black w-full border p-1" type="number">
+            <input value="3" min="1" max="9" id="size" class="text-black w-full border p-1" type="number">
         </div>
+        <hr>
         <div class="flex items-center gap-2">
             <label class="text-xs" for="decimals">decimals</label>
             <input value="5" min="0" max="10" id="decimals" class="text-black w-full border p-1" type="number">
         </div>
+        <hr>
         <div class="flex items-center gap-2">
             <label class="text-xs" for="min">min</label>
             <input value="0" id="min" class="text-black w-full border p-1" type="number">
@@ -41,6 +48,11 @@
             <input value="50" id="max" class="text-black w-full border p-1" type="number">
         </div>
         <div class="flex items-center gap-2">
+            <label class="text-xs" for="random-numbers">random numbers</label>
+            <input type="checkbox" id="random-numbers">
+        </div>
+        <hr>
+        <div class="flex items-center gap-2">
             <label class="text-xs" for="bg-color">bg color</label>
             <input id="bg-color" class="text-black w-full border-none" type="color" value="#000000">
         </div>
@@ -49,12 +61,49 @@
             <input id="text-color" class="text-black w-full border-none" type="color" value="#ffffff">
         </div>
         <div class="flex items-center gap-2">
+            <label class="text-xs" for="shade">random shading</label>
+            <input type="checkbox" id="shade">
+        </div>
+        <hr>
+        <div class="flex items-center gap-2">
             <label class="text-xs" for="delay">delay</label>
             <input value="250" step="25" min="50" id="delay" class="text-black w-full border p-1" type="number">
         </div>
+        <hr>
+        <div class="flex items-center gap-2">
+            <label class="text-xs" for="bold">bold</label>
+            <input type="checkbox" id="bold">
+        </div>
+        <div class="flex items-center gap-2">
+            <label class="text-xs" for="random-bold">random bold</label>
+            <input type="checkbox" id="random-bold">
+        </div>
+        <hr>
+        <div class="flex items-center gap-2">
+            <label class="text-xs" for="x-gap">x gap</label>
+            <input class="w-full" min="6" max="128" value="16" type="range" id="x-gap">
+        </div>
+        <div class="flex items-center gap-2">
+            <label class="text-xs" for="y-gap">y gap</label>
+            <input class="w-full" min="4" max="128" value="4" type="range" id="y-gap">
+        </div>
+        <hr>
+        <label class="text-xs w-full text-center">deadmau5 - maths</label>
+        <div class="flex justify-between items-center gap-2">
+            <button class="text-xs border p-1 w-full" onclick="player.stop()">
+                pause
+            </button>
+            <button class="text-xs border p-1 w-full" onclick="player.play()">
+                play
+            </button>
+        </div>
+        <button class="text-xs border p-1 w-full" onclick="player.restart()">
+            replay
+        </button>
     </aside> 
-    <main class="w-screen h-screen flex justify-center items-center bg-black text-white p-4">
+    <main class="w-screen h-screen flex flex-col justify-center items-center bg-black text-white p-4">
         
     </main>
+    <div class="absolute max-w-[0px] max-h-[0px]" id="music" data-plyr-provider="youtube" data-plyr-embed-id="wk-iScJwuCA"></div>
 </body>
 </html>
